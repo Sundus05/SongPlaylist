@@ -19,12 +19,11 @@ function getSongs() {
     let songs;
     if (localStorage.getItem('songs') === null) {
         songs = [];
-    }
-    else {
+    } else {
         songs = JSON.parse(localStorage.getItem('songs'));
     }
 
-    songs.forEach(function (song) {
+    songs.forEach(function(song) {
         var vname = document.getElementById('name').value;
         var url = document.getElementById('link').value;
 
@@ -115,8 +114,7 @@ function addSong(e) {
         frameContainer.innerHTML = `${output}`;
 
         console.log(output);
-    }
-    else{
+    } else {
         alert("Fill input fields");
     }
     e.preventDefault();
@@ -133,28 +131,27 @@ function addSong(e) {
         let songs;
         if (localStorage.getItem('songs') === null) {
             songs = [];
-        }
-        else {
+        } else {
             songs = JSON.parse(localStorage.getItem('songs'));
         }
         songs.push(songObj);
         localStorage.setItem('songs', JSON.stringify(songs));
     }
 
-    
+
     document.getElementById('name').value = " ";
     document.getElementById('link').value = " ";
 
     //Play Song 
     list.onclick = function playSong() {
 
-        var output = `
+            var output = `
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${id}?autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
-        frameContainer.innerHTML = `${output}`;
+            frameContainer.innerHTML = `${output}`;
 
-    }
-    //Delete Function 
+        }
+        //Delete Function 
     delButton.onclick = function delSong() {
         console.log('deleted');
         delButton.parentElement.remove();
@@ -162,7 +159,7 @@ function addSong(e) {
 
     }
 
-    
+
 }
 
 //Delete From Local Storage
@@ -173,11 +170,10 @@ function deleteFromStorage(songItem) {
     let songs;
     if (localStorage.getItem('songs') === null) {
         songs = [];
-    }
-    else {
+    } else {
         songs = JSON.parse(localStorage.getItem('songs'));
     }
-    songs.forEach(function (song, songId) {
+    songs.forEach(function(song, songId) {
         if (songItem.textContent === song.vname) {
             console.log(songs.splice(songId, 1));
         }
@@ -186,7 +182,3 @@ function deleteFromStorage(songItem) {
     })
 
 }
-
-
-
-
