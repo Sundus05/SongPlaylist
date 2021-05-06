@@ -2,7 +2,7 @@ var addButton = document.querySelector('.add');
 var frameContainer = document.querySelector('.frame-container');
 
 
-//All Functions
+//All Functions 
 loadEventListeners();
 
 function loadEventListeners() {
@@ -24,8 +24,8 @@ function getSongs() {
     }
 
     songs.forEach(function(song) {
-        var vname = document.getElementById('name').value;
-        var url = document.getElementById('link').value;
+        // var vname = document.getElementById('name').value;
+        // var url = document.getElementById('link').value;
 
         //Creating Song List
         var list = document.createElement("li");
@@ -51,21 +51,20 @@ function getSongs() {
         list.appendChild(delButton);
 
         //Play Song On Click
-        list.onclick = function playSong() {
+        playButton.onclick = function playSong() {
 
-            var output = `
+                var output = `
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${song.id}?autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
-            frameContainer.innerHTML = `${output}`;
+                frameContainer.innerHTML = `${output}`;
 
-        }
-
-
-        //Delete Function 
+            }
+            //Delete Function 
         delButton.onclick = function delSong() {
             console.log('deleted');
             delButton.parentElement.remove();
             deleteFromStorage(list);
+            frameContainer.innerHTML = ``;
 
         }
 
@@ -85,7 +84,6 @@ function addSong(e) {
     console.log(url);
 
     //Creating Song List
-
     if (vname !== "" && url !== "") {
         var list = document.createElement("li");
         items.appendChild(list);
@@ -126,7 +124,7 @@ function addSong(e) {
         console.log(output);
 
         //Play Song 
-        list.onclick = function playSong() {
+        playButton.onclick = function playSong() {
 
                 var output = `
     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${id}?autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
@@ -136,9 +134,12 @@ function addSong(e) {
             }
             //Delete Function 
         delButton.onclick = function delSong() {
+            alert("Are you sure?");
             console.log('deleted');
             delButton.parentElement.remove();
             deleteFromStorage(list);
+            frameContainer.innerHTML = ``;
+
 
         }
 

@@ -1,13 +1,6 @@
-body {
-    margin: 0;
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+/* Head Nav Bar */
 
 .main-header {
-    /* color: white; */
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -18,10 +11,6 @@ body {
     border-bottom: 1px solid lightgray;
     box-shadow: 0 2px 5px gray, 2px 0 5px gray;
     background-color: #111116;
-    /* background: hsla(167, 84%, 78%, 1);
-
-    background-image: linear-gradient( 109.6deg,  rgba(50,43,74,1) 17.3%, rgba(187,187,187,1) 87.1% );
-     */
 }
 
 .logo {
@@ -68,6 +57,17 @@ input[type=url] {
 
 .add:hover {
     opacity: 0.9;
+}
+
+
+/* Body Container */
+
+body {
+    margin: 0;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .main-container {
