@@ -66,6 +66,10 @@ input[type=url] {
     font-weight: bold;
 }
 
+.add:hover {
+    opacity: 0.9;
+}
+
 .main-container {
     padding: 30px;
     margin-top: 50px;

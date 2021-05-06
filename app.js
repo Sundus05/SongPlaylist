@@ -59,6 +59,16 @@ function getSongs() {
             frameContainer.innerHTML = `${output}`;
 
         }
+
+
+        //Delete Function 
+        delButton.onclick = function delSong() {
+            console.log('deleted');
+            delButton.parentElement.remove();
+            deleteFromStorage(list);
+
+        }
+
     });
 }
 
@@ -114,6 +124,28 @@ function addSong(e) {
         frameContainer.innerHTML = `${output}`;
 
         console.log(output);
+
+        //Play Song 
+        list.onclick = function playSong() {
+
+                var output = `
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${id}?autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
+                frameContainer.innerHTML = `${output}`;
+
+            }
+            //Delete Function 
+        delButton.onclick = function delSong() {
+            console.log('deleted');
+            delButton.parentElement.remove();
+            deleteFromStorage(list);
+
+        }
+
+
+
+
+
     } else {
         alert("Fill input fields");
     }
@@ -142,22 +174,7 @@ function addSong(e) {
     document.getElementById('name').value = " ";
     document.getElementById('link').value = " ";
 
-    //Play Song 
-    list.onclick = function playSong() {
 
-            var output = `
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${id}?autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-
-            frameContainer.innerHTML = `${output}`;
-
-        }
-        //Delete Function 
-    delButton.onclick = function delSong() {
-        console.log('deleted');
-        delButton.parentElement.remove();
-        deleteFromStorage(list);
-
-    }
 
 
 }
