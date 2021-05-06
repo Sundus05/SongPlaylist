@@ -24,8 +24,8 @@ function getSongs() {
     }
 
     songs.forEach(function(song) {
-        // var vname = document.getElementById('name').value;
-        // var url = document.getElementById('link').value;
+        var vname = document.getElementById('name').value;
+        var url = document.getElementById('link').value;
 
         //Creating Song List
         var list = document.createElement("li");
@@ -53,19 +53,17 @@ function getSongs() {
         //Play Song On Click
         list.onclick = function playSong() {
 
-            var output = `
+                var output = `
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${song.id}?autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
-            frameContainer.innerHTML = `${output}`;
+                frameContainer.innerHTML = `${output}`;
 
-        }
-
-        //Delete Function 
+            }
+            //Delete Function 
         delButton.onclick = function delSong() {
             console.log('deleted');
             delButton.parentElement.remove();
             deleteFromStorage(list);
-            frameContainer.innerHTML = ``;
 
         }
 
@@ -92,7 +90,7 @@ function addSong(e) {
 
         //Play Button 
         var playButton = document.createElement("i");
-        list.setAttribute("class", "fas fa-play");
+        playButton.setAttribute("class", "fas fa-play");
         list.appendChild(playButton);
 
 
@@ -125,7 +123,7 @@ function addSong(e) {
         console.log(output);
 
         //Play Song 
-        playButton.onclick = function playSong() {
+        list.onclick = function playSong() {
 
                 var output = `
     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${id}?autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
@@ -139,8 +137,6 @@ function addSong(e) {
             console.log('deleted');
             delButton.parentElement.remove();
             deleteFromStorage(list);
-            frameContainer.innerHTML = ``;
-
 
         }
 
