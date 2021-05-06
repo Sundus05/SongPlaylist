@@ -51,15 +51,16 @@ function getSongs() {
         list.appendChild(delButton);
 
         //Play Song On Click
-        playButton.onclick = function playSong() {
+        list.onclick = function playSong() {
 
-                var output = `
+            var output = `
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${song.id}?autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
-                frameContainer.innerHTML = `${output}`;
+            frameContainer.innerHTML = `${output}`;
 
-            }
-            //Delete Function 
+        }
+
+        //Delete Function 
         delButton.onclick = function delSong() {
             console.log('deleted');
             delButton.parentElement.remove();
@@ -91,7 +92,7 @@ function addSong(e) {
 
         //Play Button 
         var playButton = document.createElement("i");
-        playButton.setAttribute("class", "fas fa-play");
+        list.setAttribute("class", "fas fa-play");
         list.appendChild(playButton);
 
 
