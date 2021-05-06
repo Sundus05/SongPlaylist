@@ -116,6 +116,9 @@ function addSong(e) {
 
         console.log(output);
     }
+    else{
+        alert("Fill input fields");
+    }
     e.preventDefault();
     //Call Store Function
     storeSongs(vname, id);
@@ -138,13 +141,7 @@ function addSong(e) {
         localStorage.setItem('songs', JSON.stringify(songs));
     }
 
-    //Delete Function 
-    delButton.onclick = function delSong() {
-        console.log('deleted');
-        delButton.parentElement.remove();
-        deleteFromStorage(list);
-
-    }
+    
     document.getElementById('name').value = " ";
     document.getElementById('link').value = " ";
 
@@ -157,12 +154,16 @@ function addSong(e) {
         frameContainer.innerHTML = `${output}`;
 
     }
+    //Delete Function 
+    delButton.onclick = function delSong() {
+        console.log('deleted');
+        delButton.parentElement.remove();
+        deleteFromStorage(list);
 
+    }
 
+    
 }
-
-
-
 
 //Delete From Local Storage
 function deleteFromStorage(songItem) {
@@ -181,8 +182,6 @@ function deleteFromStorage(songItem) {
             console.log(songs.splice(songId, 1));
         }
         localStorage.setItem('songs', JSON.stringify(songs));
-
-
 
     })
 
